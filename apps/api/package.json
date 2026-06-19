@@ -1,0 +1,36 @@
+{
+  "name": "@tma-shop/api",
+  "version": "0.1.0",
+  "private": true,
+  "description": "tma-shop backend — Hono + Postgres + Drizzle, Telegram initData auth and Stars payments.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --env-file-if-exists=.env src/index.ts",
+    "start": "node --env-file-if-exists=.env dist/index.js",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx --env-file-if-exists=.env src/db/migrate.ts",
+    "db:seed": "tsx --env-file-if-exists=.env src/db/seed.ts"
+  },
+  "dependencies": {
+    "@hono/node-server": "^2.0.5",
+    "@hono/zod-validator": "^0.8.0",
+    "@tma-shop/shared": "*",
+    "drizzle-orm": "^0.45.2",
+    "hono": "^4.12.26",
+    "jose": "^6.2.3",
+    "pg": "^8.22.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.20.0",
+    "drizzle-kit": "^0.31.10",
+    "tsx": "^4.22.4",
+    "typescript": "^5.7.3",
+    "vitest": "^4.1.9"
+  }
+}
